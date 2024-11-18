@@ -1,4 +1,7 @@
-
+'''
+STACK: First in last out (FILO)/ Last in first out (LIFO)
+'''
+import sys
 
 class Stack:
     def __init__(self):
@@ -18,47 +21,42 @@ class Stack:
     def is_empty(self):
         return len(self.elements) == 0
 
-    def top(self):
-        return self.elements[-1]
-
     def get_stack(self):
         return self.elements
 
 if __name__ == "__main__":
-    action_flag = 1
+    print("1 Push \
+          \n2 Pop \
+          \n3 Size \
+          \n4 Empty \
+          \n5 Get Stack")
     stack = Stack()
     
     while(1):
         try:
-            if action_flag == 1:
-                action = int(input("1 For Push \n2 For Pop \n3 For Size \n4 For Empty \n5 For Top Element\nChoose Stack Action: "))
-            else:
-                action = int(input("Choose Stack Action: "))
+            action = int(input("Enter Action: "))
         except ValueError:
             print("Invalid Input. Try Again!")
             continue
-        
-        action_flag = 0
-        
+
         if action == 1:
-            item = input("Enter item to Push: ")
+            item = input("Push Item: ")
             if item:
                 stack.push(item)
-                print("Current Stack: ", stack.get_stack())
         elif action == 2:
             if stack.is_empty():
                 print("Error: Stack is Empty.")
             else:
-                print("Popped Item: ", stack.pop())
-                print("Stack after Pop: ", stack.get_stack())
+                print("Pop---> ", stack.pop())
         elif action == 3:
-            print("Size of Stack: ", stack.size())
+            print("Size---> ", stack.size())
         elif action == 4:
-            print("Stack empty check: ", stack.is_empty())
+            print("Empty---> ", stack.is_empty())
         elif action == 5:
-            print("Top item in Stack: ", stack.top())
+            print("Stack---> ", stack.get_stack())
         else:
-            print("Invalid Input. Try Again!")
+            print("Exiting!")
+            sys.exit()
 
 
             

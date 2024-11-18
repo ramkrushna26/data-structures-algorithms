@@ -1,7 +1,4 @@
 
-
-
-
 stack = []
 stack_dup = []
 

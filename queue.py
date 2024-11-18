@@ -1,4 +1,7 @@
-
+'''
+QUEUE: first in first out (FIFO)
+'''
+import sys
 
 class Queue:
     def __init__(self):
@@ -17,45 +20,40 @@ class Queue:
     def is_empty(self):
         return len(self.elements) == 0
 
-    def front(self):
-        return self.elements[-1]
-
     def get_queue(self):
         return self.elements
 
 if __name__ == "__main__":
-    action_flag = 1
     queue = Queue()
+    print("1 Enqueue \
+          \n2 Dequeue \
+          \n3 Size \
+          \n4 Display \
+          \n5 Empty")
     
     while(1):
         try:
-            if action_flag == 1:
-                action = int(input("1 For Enqueue \n2 For Dequeue \n3 For Size \n4 For Empty \n5 For Front Element\nChoose Queue Action: "))
-            else:
-                action = int(input("Choose Queue Action: "))
-        except ValueError:
+            action = int(input("Choose Action: "))
+        except:
             print("Invalid Input. Try Again!")
             continue
         
-        action_flag = 0
-        
         if action == 1:
-            item = input("Enter item to Enqueue: ")
+            item = input("Enqueue item: ")
             if item:
                 queue.enqueue(item)
-                print("Current Queue: ", queue.get_queue())
         elif action == 2:
             if queue.is_empty():
                 print("Error: Queue is Empty.")
             else:
-                print("Dequeue Item: ", queue.dequeue())
-                print("Queue after Dequeue: ", queue.get_queue())
+                print("Dequeue----> ", queue.dequeue())
         elif action == 3:
-            print("Size of Queue: ", queue.size())
+            print("Size----> ", queue.size())
         elif action == 4:
-            print("Queue empty check: ", queue.is_empty())
+            print("Queue----> ", queue.get_queue())
         elif action == 5:
-            print("Front item in Queue: ", queue.front())
+            print("Empty----> ", queue.is_empty())
         else:
-            print("Invalid Input. Try Again!")
+            print("Exiting!")
+            sys.exit()
 

@@ -1,1 +1,6 @@
-# data-structures-algorithms
+# Data-Structures
+Queue  
+Stack  
+  
+# Algorithms
+Linear Search  
